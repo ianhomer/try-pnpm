@@ -1,0 +1,40 @@
+{
+  "name": "try-pnpm",
+  "version": "1.0.0",
+  "description": "Try pnpm",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianhomer/try-pnpm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ianhomer/try-pnpm/issues"
+  },
+  "homepage": "https://github.com/ianhomer/try-pnpm#readme",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint src --ext .ts",
+    "eslint:fix": "eslint src --ext .ts --fix",
+    "lint": "pnpm prettier && pnpm eslint",
+    "lint:fix": "pnpm package:fix && pnpm prettier:fix && pnpm eslint:fix",
+    "package:fix": "format-package -w",
+    "prepare": "husky install",
+    "prettier": "pnpm dlx prettier --check .",
+    "prettier:fix": "pnpm prettier --write .",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "format-package": "^6.1.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.3",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
