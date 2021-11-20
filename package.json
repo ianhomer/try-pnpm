@@ -21,7 +21,7 @@
     "package:fix": "format-package -w",
     "prepare": "husky install",
     "prettier": "pnpm dlx prettier --check .",
-    "prettier:fix": "pnpm prettier --write .",
+    "prettier:fix": "pnpm dlx prettier --write .",
     "start": "ts-node src/index.ts"
   },
   "devDependencies": {
