@@ -14,6 +14,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf node_modules",
     "eslint": "eslint src --ext .ts",
     "eslint:fix": "eslint src --ext .ts --fix",
     "lint": "pnpm prettier && pnpm eslint",
@@ -34,6 +35,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.0.3",
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   }
