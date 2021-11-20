@@ -1,0 +1,32 @@
+name: update
+
+on:
+  schedule:
+    - cron: 0 0 * * 1
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm install, build
+        run: |
+          pnpm install
+          pnpm update -L
+          pnpm install
+        env:
+          CI: false
+      - name: commit update
+        run: |
+          if ! git diff --quiet --exit-code ; then
+            git config --local user.email "auto@purplepip.com"
+            git config --local user.name "Purple Pip Robot"
+            git commit -am "Auto-update"
+            git push
+          fi
